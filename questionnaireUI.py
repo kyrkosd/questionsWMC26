@@ -19,11 +19,13 @@ def handle_click(choice):
             show_step("barrier", "Why not?", ["Unknown", "Lack of trust", "Expensive", "Noise"])
 
     elif current_step == "context":
-        show_step("benefit", "What problems do they solve?", ["Vulnerabilities", "Code Quality", "Both", "None"])
+        show_step("benefit", "What problems do they solve?"\
+                  , ["Vulnerabilities", "Code Quality", "Both", "None"])
 
     elif current_step == "benefit":
         if choice == "None":
-            show_step("reason_why_none", "Why not?", ["Too complex", "Not useful", "Too much noise", "Unsure"])
+            show_step("reason_why_none", "Why not?"\
+                      , ["Too complex", "Not useful", "Too much noise", "Unsure"])
         else:
             show_step("frequency", "How often?", ["Always", "Often", "Sometimes", "Rarely"])
 
@@ -73,7 +75,7 @@ def show_rating_screen():
 
     # Final Submit Button
     submit_btn = ctk.CTkButton(button_frame, text="Finish Survey", 
-                              command=lambda: finish(slider.get()))
+                        command=lambda: finish(slider.get()))
     submit_btn.pack(pady=20)
 
 def finish(final_rating):
