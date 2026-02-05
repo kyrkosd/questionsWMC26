@@ -7,7 +7,7 @@ if q1.lower() == "yes":
         if q3.lower() == "yes":
             q31=input("whould you incorporate them in your personal projects? (yes/no): ")
         elif q3.lower() == "no":
-            q32=input("Why not? (Too complex, Not useful, Too Much Noise, Dont know how to use them properly): ")    
+            q32=input("Why not? (Too complex, Not useful, Too Much Noise, Dont know how to use them properly): ")
     elif q2.lower() == "personal projects":
         q4=input("How often do you use them? (Always, Often, Sometimes, Rarely): ")
         q7=input("Do you find them helpful? (yes/no): ")
