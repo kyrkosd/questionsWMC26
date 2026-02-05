@@ -1,19 +1,37 @@
-q=input("How/Where do you find QA/SAST tools? (Individual research, Trusted CO-worker/friend, Ads): ")
-q1=input("Do you use QA/SAST tools in your software development process? (yes/no): ")
-if q1.lower() == "yes":
-    q2=input("What for? (Work, Personal Projects, Both): ")
-    if q2.lower() == "work":
-        q3=input("Do you find them helpful? (yes/no): ")
-        if q3.lower() == "yes":
-            q31=input("whould you incorporate them in your personal projects? (yes/no): ")
-        elif q3.lower() == "no":
-            q32=input("Why not? (Too complex, Not useful, Too Much Noise, Dont know how to use them properly): ")
-    elif q2.lower() == "personal projects":
-        q4=input("How often do you use them? (Always, Often, Sometimes, Rarely): ")
-        q7=input("Do you find them helpful? (yes/no): ")
-    elif q2.lower() == "both":
-        q5=q4
-        q8=q7
-elif q1.lower() == "no":
-    q9=input("Why not? (Dont know about them, Don't trust them, Expensive, Too much noise): ")
-    q10=input("Whould you consider using them in the future? (yes/no): ")
+"""
+Questionare for WMC26
+"""
+def run_survey():
+    print("--- Software Quality & Security Tooling Survey ---")
+
+    # 1. Discovery Source
+    discovery_source = input("How do you typically discover QA/SAST tools?\n(Individual research, Trusted peer, Advertisements): ").strip()
+
+    # 2. Usage Baseline
+    uses_tools = input("\nDo you incorporate QA/SAST tools into your development workflow? (yes/no): ").lower().strip()
+
+    if uses_tools == "yes":
+        context = input("In what capacity? (Work, Personal Projects, Both): ").lower().strip()
+    
+        # Branch: Work Only
+        if context == "work":
+            is_helpful = input("Do you find them effective in a professional environment? (yes/no): ").lower().strip()
+            if is_helpful == "yes":
+                input("Would you consider adopting them for personal use as well? (yes/no): ")
+            else:
+                input("What is the primary barrier to effectiveness? (Complexity, Noise/False Positives, Utility): ")
+
+        # Branch: Personal Projects or Both
+        elif context in ["personal projects", "both"]:
+            frequency = input("How consistently do you use them? (Always, Often, Sometimes, Rarely): ")
+            is_helpful = input("Do you find they provide significant value? (yes/no): ")
+
+    else:
+        # Branch: Non-users
+        reason = input("\nWhat is the primary reason for not using these tools?\n(Lack of awareness, Trust issues, Cost, Alert fatigue): ")
+        consideration = input("Would you consider integrating them if these barriers were addressed? (yes/no): ")
+
+    print("\nThank you for your professional feedback!")
+
+if __name__ == "__main__":
+    run_survey()
