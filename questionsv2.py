@@ -1,3 +1,6 @@
+"""
+Questionare for WMC26
+"""
 def get_choice(prompt, options):
     """Helper to ensure the user picks a valid option."""
     while True:
@@ -16,17 +19,17 @@ print("="*40)
 results = {}
 
 # Logic Flow
-q1 = get_choice("Do you use QA/SAST tools?", ["Yes", "No"])
-results['uses_tools'] = q1
+usage = get_choice("Do you use QA/SAST tools?", ["Yes", "No"])
+results['uses_tools'] = 
 
-if q1 == "Yes":
+if usage == "Yes":
     results['context'] = get_choice("What for?", ["Work", "Personal Projects", "Both"])
-    
-    q3 = get_choice("What problems do they solve?", 
+
+    problem_solve = get_choice("What problems do they solve?", 
                     ["Vulnerabilities", "Code Quality", "Both", "None"])
-    results['benefit'] = q3
-    
-    if q3 == "None":
+    results['benefit'] = problem_solve
+
+    if problem_solve == "None":
         results['reason_why_none'] = get_choice("Why not?", 
             ["Too complex", "Not useful", "Too much noise", "Unsure"])
     else:
