@@ -1,6 +1,0 @@
-rules:
-  - id: my-sast-run
-    exclude-rules:
-      - id-of-style-rule-1
-    metadata:
-      category: security # This ensures only security-labeled rules run
